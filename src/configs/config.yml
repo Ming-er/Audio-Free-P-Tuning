@@ -1,0 +1,42 @@
+# TEXT ENCODER CONFIG
+text_model: 'bert-base-uncased'
+text_len: 100
+transformer_embed_dim: 768
+freeze_text_encoder_weights: True
+
+# AUDIO ENCODER CONFIG
+audioenc_name: 'Cnn14'
+out_emb: 2048
+sampling_rate: 44100
+duration: 5
+fmin: 50
+fmax: 14000
+n_fft: 1028
+hop_size: 320
+mel_bins: 64
+window_size: 1024
+
+# PROJECTION SPACE CONFIG 
+d_proj: 1024
+temperature: 0.003
+num_classes: 527
+
+# TRAINING AND EVALUATION CONFIG
+prompt: True
+prompt_len: 32
+lr: 0.002
+model_fp: "/PATH/TO/WEIGHTS" 
+use_cuda: True
+epochs: 10
+batch_size: 24
+
+# DATA CONFIG
+dataset: "esc" # select from ["esc", "urbansound", "fsd", "dcase"]
+esc_text_path: "./cap_esc.csv"
+esc_audio_path: "/PATH/TO/ESC-50" 
+urbansound_text_path: "./cap_urbansound8k.csv"
+urbansound_audio_path: "/PATH/TO/URBANSOUND8K"
+fsd_text_path: "./cap_fsd19.csv"
+fsd_audio_path: "/PATH/TO/FSD-19"
+dcase_text_path: "./cap_dcase19.csv"
+dcase_audio_path: "/PATH/TO/DCASE-19"
